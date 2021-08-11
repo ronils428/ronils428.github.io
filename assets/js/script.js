@@ -36,7 +36,6 @@ function scrollActive(){
 
         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
             document.querySelector('.menu a[href*=' + sectionId + ']').classList.add('active')
-            console.log('.menu a[href*=' + sectionId + ']');
         }else{
             document.querySelector('.menu a[href*=' + sectionId + ']').classList.remove('active')
         }
