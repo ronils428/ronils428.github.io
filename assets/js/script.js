@@ -293,3 +293,8 @@ $(document).ready(function(){
         $('.navbar .menu').toggleClass("active");
     });
 });
+
+function submit_form() {
+    document.EmailForm.submit();
+    document.EmailForm.reset();
+}
