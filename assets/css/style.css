@@ -136,6 +136,7 @@ button {
   position: relative;
   overflow: hidden;
   vertical-align: middle;
+  scroll-behavior: smooth;
   transition: color 0.3s ease;
 }
 .btn::before {
