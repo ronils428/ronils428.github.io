@@ -1,5 +1,5 @@
 // Load Page
-window.addEventListener("load", ()=>{
+window.addEventListener("load", () => {
     document.querySelector(".main").classList.remove("hidden");
     document.querySelector(".home-section").classList.add("active");
     document.querySelector(".about-section").classList.add("active");
@@ -7,7 +7,7 @@ window.addEventListener("load", ()=>{
     document.querySelector(".contact-section").classList.add("active");
     //  Page Loader
     document.querySelector(".page-loader").classList.add("fade-out");
-    setTimeout(()=>{
+    setTimeout(() => {
         document.querySelector(".page-loader").style.display = 'none';
     }, 600)
 })
@@ -27,39 +27,39 @@ function toggleNavbar() {
 
 /*===== SCROLL SECTIONS ACTIVE LINK =====*/
 const sections = document.querySelectorAll('section');
-function scrollActive(){
+function scrollActive() {
     const scrollY = window.pageYOffset
-    sections.forEach(current =>{
+    sections.forEach(current => {
         const sectionHeight = current.offsetHeight
         const sectionTop = current.offsetTop - 50;
         sectionId = current.getAttribute('id');
 
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
             document.querySelector('.menu a[href*=' + sectionId + ']').classList.add('active')
-        }else{
+        } else {
             document.querySelector('.menu a[href*=' + sectionId + ']').classList.remove('active')
         }
     })
 }
 window.addEventListener('scroll', scrollActive)
 
-/*==================== SHOW SCROLL UP ====================*/ 
-function scrollSocial(){
+/*==================== SHOW SCROLL UP ====================*/
+function scrollSocial() {
     const scrollSocial = document.getElementById('header__sidepanel');
     currentSection = document.querySelector(".menu .active");
     currentId = currentSection.getAttribute("href");
-    if((this.scrollY >= 10) && currentId != '#home'){
+    if ((this.scrollY >= 10) && currentId != '#home') {
         scrollSocial.classList.add('show-socials');
-     } else{ 
-         scrollSocial.classList.remove('show-socials')
+    } else {
+        scrollSocial.classList.remove('show-socials')
     }
 }
 window.addEventListener('scroll', scrollSocial)
 
 // TYPING
-$(document).ready(function(){
+$(document).ready(function () {
     var typed = new Typed(".typing", {
-        strings: ["medical devices.", "design.", "teaching.", "development.", "learning."],
+        strings: ["machine learning.", "design.", "teaching.", "development.", "learning."],
         typeSpeed: 80,
         backSpeed: 60,
         loop: true
@@ -126,11 +126,11 @@ function bodyScrollingToggle() {
             screenshots = portfolioItems[itemIndex].querySelector(".portfolio-item-img img").getAttribute("data-screenshots");
             // convert screenshots into array
             screenshots = screenshots.split(",");
-            if(screenshots.length === 1){
+            if (screenshots.length === 1) {
                 prevBtn.style.display = "none";
                 nextBtn.style.display = "none";
             }
-            else{
+            else {
                 prevBtn.style.display = "block";
                 nextBtn.style.display = "block";
             }
@@ -143,7 +143,7 @@ function bodyScrollingToggle() {
 
     closeBtn.addEventListener("click", () => {
         popupToggle();
-        if(projectDetailsContainer.classList.contains("active")){
+        if (projectDetailsContainer.classList.contains("active")) {
             popupDetailsToggle();
         }
     })
@@ -156,7 +156,7 @@ function bodyScrollingToggle() {
 
     function popupSlideshow() {
         const imgSrc = screenshots[slideIndex];
-        
+
         const popupImg = popup.querySelector(".pp-img");
         // activate loader until the popupImg loads
         popup.querySelector(".pp-loader").classList.add('active');
@@ -165,36 +165,36 @@ function bodyScrollingToggle() {
             // deactivate laoder
             popup.querySelector(".pp-loader").classList.remove('active');
         }
-        popup.querySelector(".pp-counter").innerHTML = (slideIndex+1) + " of " + screenshots.length;
+        popup.querySelector(".pp-counter").innerHTML = (slideIndex + 1) + " of " + screenshots.length;
     }
 
     // next slide
     nextBtn.addEventListener("click", () => {
-        if(slideIndex === screenshots.length - 1) {
+        if (slideIndex === screenshots.length - 1) {
             slideIndex = 0;
         }
         else {
-            slideIndex ++;
+            slideIndex++;
         }
         popupSlideshow();
     })
 
     // prev slide
     prevBtn.addEventListener("click", () => {
-        if(slideIndex === 0) {
+        if (slideIndex === 0) {
             slideIndex = screenshots.length - 1;
         }
         else {
-            slideIndex --;
+            slideIndex--;
         }
         popupSlideshow();
     })
 
-    function popupDetails(){
+    function popupDetails() {
         // if portfolio item details not empty
-        if (!portfolioItems[itemIndex].querySelector(".portfolio-item-details")){
+        if (!portfolioItems[itemIndex].querySelector(".portfolio-item-details")) {
             projectDetailsBtn.style.display = 'none';
-            return; 
+            return;
         }
         projectDetailsBtn.style.display = 'block';
         // get the project details
@@ -210,14 +210,14 @@ function bodyScrollingToggle() {
         popupDetailsToggle();
     })
     function popupDetailsToggle() {
-        if(projectDetailsContainer.classList.contains("active")){
+        if (projectDetailsContainer.classList.contains("active")) {
             projectDetailsBtn.querySelector("i").classList.remove("uil-minus");
             projectDetailsBtn.querySelector("i").classList.add("uil-plus");
 
             projectDetailsContainer.classList.remove("active");
             projectDetailsContainer.style.maxHeight = 0 + "px";
         }
-        else{
+        else {
             projectDetailsBtn.querySelector("i").classList.remove("uil-plus");
             projectDetailsBtn.querySelector("i").classList.add("uil-minus");
 
@@ -230,7 +230,7 @@ function bodyScrollingToggle() {
 
 })();
 
-/*==================== DARK LIGHT THEME ====================*/ 
+/*==================== DARK LIGHT THEME ====================*/
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
 const iconTheme = 'uil-sun'
@@ -256,31 +256,31 @@ themeButton.addEventListener('click', () => {
 })
 
 // Navbar and ScrollTop 
-$(document).ready(function(){
-    $(window).scroll(function(){
+$(document).ready(function () {
+    $(window).scroll(function () {
         // sticky navbar on scroll script
-        if(this.scrollY > 40){
+        if (this.scrollY > 40) {
             $('.navbar').addClass("sticky");
-        }else{
+        } else {
             $('.navbar').removeClass("sticky");
         }
-        
+
         // scroll-up button show/hide script
-        if(this.scrollY > 500){
+        if (this.scrollY > 500) {
             $('.scroll-up-btn').addClass("show");
-        }else{
+        } else {
             $('.scroll-up-btn').removeClass("show");
         }
     });
 
     // slide-up script
-    $('.scroll-up-btn').click(function(){
-        $('html').animate({scrollTop: 0});
+    $('.scroll-up-btn').click(function () {
+        $('html').animate({ scrollTop: 0 });
         // removing smooth scroll on slide-up button click
         $('html').css("scrollBehavior", "auto");
     });
 
-    $('.navbar .menu li a').click(function(){
+    $('.navbar .menu li a').click(function () {
         // applying again smooth scroll on menu items click
         $('html').css("scrollBehavior", "smooth");
         $('.navbar .menu').toggleClass("active");
@@ -288,7 +288,7 @@ $(document).ready(function(){
     });
 
     // toggle menu/navbar script
-    $('.nav-toggler').click(function(){
+    $('.nav-toggler').click(function () {
         $('.navbar .menu').toggleClass("active");
     });
 });
